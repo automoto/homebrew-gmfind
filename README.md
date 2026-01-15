@@ -14,7 +14,7 @@ brew install gmfind
 For browser automation commands (buy, balance, inventory --private):
 
 ```bash
-uv pip install playwright
+$(brew --prefix gmfind)/libexec/bin/python -m pip install playwright
 playwright install chromium
 ```
 
