@@ -95,8 +95,10 @@ class Gmfind < Formula
         gmfind check 1145350
 
       For browser commands (buy, balance), install Playwright:
-        uv pip install playwright
-        playwright install chromium
+        pip install playwright && playwright install chromium
+
+      Or with uv:
+        uv tool install playwright && playwright install chromium
     EOS
   end
 
