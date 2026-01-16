@@ -43,6 +43,11 @@ gmfind --help
 | `gmfind balance` | Check Steam Wallet balance |
 | `gmfind inventory --private` | Export library (private profiles) |
 
+To enable browser commands, run once after installation:
+```bash
+$(brew --prefix gmfind)/libexec/bin/python -m playwright install chromium
+```
+
 ## Links
 
 - [gmfind on GitHub](https://github.com/automoto/gmfind)

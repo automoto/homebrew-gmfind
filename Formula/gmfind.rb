@@ -86,7 +86,6 @@ class Gmfind < Formula
 
   def post_install
     system libexec/"bin/python", "-m", "pip", "install", "playwright"
-    system libexec/"bin/python", "-m", "playwright", "install", "chromium"
   end
 
   def caveats
@@ -94,8 +93,9 @@ class Gmfind < Formula
       gmfind is installed! Try these commands:
         gmfind deals 5
         gmfind check 1145350
-        gmfind buy 1145350
-        gmfind balance
+
+      For browser commands (buy, balance), run once:
+        $(brew --prefix gmfind)/libexec/bin/python -m playwright install chromium
     EOS
   end
 
