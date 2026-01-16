@@ -81,14 +81,9 @@ class Gmfind < Formula
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "playwright==1.57.0"
   end
 
-  def post_install
-    system bin/"gmfind-setup"
-  end
-
   def caveats
     <<~EOS
-      Playwright browsers have been installed automatically via gmfind-setup.
-      To manually reinstall browsers, run:
+      To manually reinstall browsers and generate your configurations, run:
         gmfind-setup
     EOS
   end
