@@ -84,15 +84,18 @@ class Gmfind < Formula
     virtualenv_install_with_resources
   end
 
+  def post_install
+    system libexec/"bin/pip", "install", "playwright"
+    system libexec/"bin/playwright", "install", "chromium"
+  end
+
   def caveats
     <<~EOS
-      gmfind is installed! Some commands work immediately:
+      gmfind is installed! Try these commands:
         gmfind deals 5
         gmfind check 1145350
-
-      For browser commands (buy, balance), install Playwright:
-        $(brew --prefix gmfind)/libexec/bin/python -m pip install playwright
-        playwright install chromium
+        gmfind buy 1145350
+        gmfind balance
     EOS
   end
 
