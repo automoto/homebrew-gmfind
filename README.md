@@ -15,7 +15,8 @@ For browser automation commands (buy, balance, inventory --private):
 
 ```bash
 $(brew --prefix gmfind)/libexec/bin/python -m pip install playwright
-playwright install chromium
+# Install the browsers (using the same environment)
+$(brew --prefix gmfind)/libexec/bin/python -m playwright install chromium
 ```
 
 ## Usage
