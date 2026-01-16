@@ -45,11 +45,6 @@ class Gmfind < Formula
     sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
   end
 
-  resource "playwright" do
-    url "https://files.pythonhosted.org/packages/60/bd/5563850322a663956c927eefcf1457d12917e8f118c214410e815f2147d1/playwright-1.57.0-py3-none-macosx_11_0_universal2.whl"
-    sha256 "99104771abc4eafee48f47dac2369e0015516dc1ce8c409807d2dd440828b9a4"
-  end
-
   resource "pyee" do
     url "https://files.pythonhosted.org/packages/95/03/1fd98d5841cd7964a27d729ccf2199602fe05eb7a405c1462eb7277945ed/pyee-13.0.0.tar.gz"
     sha256 "b391e3c5a434d1f5118a25615001dbc8f669cf410ab67d04c4d4e07c55481c37"
@@ -82,6 +77,8 @@ class Gmfind < Formula
 
   def install
     virtualenv_install_with_resources
+    # Playwright only ships wheels (no source tarball), install separately
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "playwright==1.57.0"
   end
 
   def post_install
