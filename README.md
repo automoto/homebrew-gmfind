@@ -9,16 +9,6 @@ brew tap automoto/gmfind
 brew install gmfind
 ```
 
-## Post-Install (Optional)
-
-For browser automation commands (buy, balance, inventory --private):
-
-```bash
-$(brew --prefix gmfind)/libexec/bin/python -m pip install playwright
-# Install the browsers (using the same environment)
-$(brew --prefix gmfind)/libexec/bin/python -m playwright install chromium
-```
-
 ## Usage
 
 ```bash
