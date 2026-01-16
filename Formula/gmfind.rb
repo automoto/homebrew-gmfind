@@ -6,6 +6,7 @@ class Gmfind < Formula
   url "https://files.pythonhosted.org/packages/15/3d/539aefccbf47608dd5125c1372b90fe23c46d66d187c5981fa56ea0ba0e6/gmfind-0.1.14.tar.gz"
   sha256 "7683ba854641eb82d8af62570c4676fb5a3e5447d6ca908d7e8f854f844af55a"
   license "MIT"
+  version "0.1.14"
 
   depends_on "python@3.12"
 
