@@ -3,8 +3,8 @@ class Gmfind < Formula
 
   desc "Steam automation CLI - find games, check deals, and purchase"
   homepage "https://github.com/automoto/gmfind"
-  url "https://files.pythonhosted.org/packages/f2/55/2487026b3440bb14d9a63c31873308f53b18cbe2acf28a95a369fbd29c5f/gmfind-0.1.10.tar.gz"
-  sha256 "0ffd2cd93f4f2c2e922ebb7503805874e5760af95fec6ffb797bbc132d6a7156"
+  url "https://files.pythonhosted.org/packages/30/0d/a34c610a1a1f4456b267eea6db2f141703b21a4b9fb7ab8bc0e2bd36d3aa/gmfind-0.1.11.tar.gz"
+  sha256 "1a615c5884e297e2b581f16786630d7f1eae9e54f8724b60219256700442282b"
   license "MIT"
 
   depends_on "python@3.12"
