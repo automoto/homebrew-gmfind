@@ -1,19 +1,13 @@
 class Gmfind < Formula
   include Language::Python::Virtualenv
 
-  desc "Steam automation CLI - find games, check deals, and purchase"
+  desc "Steam automation CLI - find games, check deals, purchase, and manage your Steam library"
   homepage "https://github.com/automoto/gmfind"
-  url "https://files.pythonhosted.org/packages/b8/f1/021dbeb4bd8bc9d04f9f954fff4bfd19120ca1a28ea8e93adf58edb27cea/gmfind-0.1.12.tar.gz"
-  version "0.1.12"
-  sha256 "f3c739da8134c024069272753f96630b46d0cc8fa1e9e4ad1826b87795a8c406"
+  url "https://files.pythonhosted.org/packages/15/3d/539aefccbf47608dd5125c1372b90fe23c46d66d187c5981fa56ea0ba0e6/gmfind-0.1.14.tar.gz"
+  sha256 "7683ba854641eb82d8af62570c4676fb5a3e5447d6ca908d7e8f854f844af55a"
   license "MIT"
 
   depends_on "python@3.12"
-
-  resource "anyio" do
-    url "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz"
-    sha256 "41cfcc3a4c85d3f05c932da7c26d0201ac36f72abd4435ba90d0464a3ffed703"
-  end
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
@@ -30,14 +24,9 @@ class Gmfind < Formula
     sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
-  resource "h11" do
-    url "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
-    sha256 "4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"
-  end
-
-  resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz"
-    sha256 "6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/c7/e5/40dbda2736893e3e53d25838e0f19a2b417dfc122b9989c91918db30b5d3/greenlet-3.3.0.tar.gz"
+    sha256 "a82bb225a4e9e4d653dd2fb7b8b2d36e4fb25bc0165422a11e48b88e9e6f78fb"
   end
 
   resource "idna" do
@@ -55,7 +44,17 @@ class Gmfind < Formula
     sha256 "61d5cdcc6065745cdd94f0f878977f8de9437be93de97c1c12f853c9c0cdcbda"
   end
 
-  resource "pyyaml" do
+  resource "playwright" do
+    url "https://files.pythonhosted.org/packages/60/bd/5563850322a663956c927eefcf1457d12917e8f118c214410e815f2147d1/playwright-1.57.0-py3-none-macosx_11_0_universal2.whl"
+    sha256 "99104771abc4eafee48f47dac2369e0015516dc1ce8c409807d2dd440828b9a4"
+  end
+
+  resource "pyee" do
+    url "https://files.pythonhosted.org/packages/95/03/1fd98d5841cd7964a27d729ccf2199602fe05eb7a405c1462eb7277945ed/pyee-13.0.0.tar.gz"
+    sha256 "b391e3c5a434d1f5118a25615001dbc8f669cf410ab67d04c4d4e07c55481c37"
+  end
+
+  resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
@@ -85,21 +84,18 @@ class Gmfind < Formula
   end
 
   def post_install
-    system libexec/"bin/python", "-m", "pip", "install", "playwright"
+    system bin/"gmfind-setup"
   end
 
   def caveats
     <<~EOS
-      gmfind is installed! Try these commands:
-        gmfind deals 5
-        gmfind check 1145350
-
-      For browser commands (buy, balance), run once:
-        $(brew --prefix gmfind)/libexec/bin/python -m playwright install chromium
+      Playwright browsers have been installed automatically via gmfind-setup.
+      To manually reinstall browsers, run:
+        gmfind-setup
     EOS
   end
 
   test do
-    system "#{bin}/gmfind", "--version"
+    system bin/"gmfind", "--help"
   end
 end
