@@ -85,8 +85,8 @@ class Gmfind < Formula
   end
 
   def post_install
-    system libexec/"bin/pip", "install", "playwright"
-    system libexec/"bin/playwright", "install", "chromium"
+    system libexec/"bin/python", "-m", "pip", "install", "playwright"
+    system libexec/"bin/python", "-m", "playwright", "install", "chromium"
   end
 
   def caveats
