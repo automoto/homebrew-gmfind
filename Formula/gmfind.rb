@@ -4,6 +4,7 @@ class Gmfind < Formula
   desc "Steam automation CLI - find games, check deals, and purchase"
   homepage "https://github.com/automoto/gmfind"
   url "https://files.pythonhosted.org/packages/30/0d/a34c610a1a1f4456b267eea6db2f141703b21a4b9fb7ab8bc0e2bd36d3aa/gmfind-0.1.11.tar.gz"
+  version "0.1.11"
   sha256 "1a615c5884e297e2b581f16786630d7f1eae9e54f8724b60219256700442282b"
   license "MIT"
 
